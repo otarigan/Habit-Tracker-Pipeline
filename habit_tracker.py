@@ -51,6 +51,8 @@ def day_summary():
         print("You'll do better, but you did not meet your goals today")
         fail_counter += 1
 
+day_summary()
+
 # Closing connection
 
 con.close()
