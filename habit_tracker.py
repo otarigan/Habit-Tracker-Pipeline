@@ -53,6 +53,28 @@ def day_summary():
 
 day_summary()
 
+cur.execute ('''
+
+    CREATE TABLE IF NOT EXISTS day_tracking(
+        date TEXT
+        , user_name TEXT
+        , rating_day INT
+        , rating_calmness INT
+    )
+'''
+)
+             
+def reflections():
+    rating_day = int(input('Rate your day out of 10 today: '))
+    rating_calmness = int(input('And how calm were you? \n'))
+
+    if rating_day > 5 and rating_calmness > 5:
+        print('Wow, that is amazing ')
+    else:
+        print('Hope it gets better! ')
+
+reflections()
+
 # Closing connection
 
 con.close()
