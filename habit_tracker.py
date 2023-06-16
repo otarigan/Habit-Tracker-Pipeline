@@ -25,6 +25,16 @@ cur.execute('''
 '''
 )
 
+cur.execute ('''
+
+    CREATE TABLE IF NOT EXISTS day_tracking(
+        date TEXT
+        , user_name TEXT
+        , rating_day INT
+        , rating_calmness INT
+    )
+'''
+)
 # Setting up user input - Defining Function
 
 user_name = 'OT'
@@ -51,19 +61,11 @@ def day_summary():
         print("You'll do better, but you did not meet your goals today")
         fail_counter += 1
 
-day_summary()
+    cur.execute("INSERT INTO fitness_tracker VALUES (?, ?, ?, ?, ?, ?)",
+                (str(date), user_name, user_mood, training_time, learning_time, run_distance))
+    con.commit()
 
-cur.execute ('''
-
-    CREATE TABLE IF NOT EXISTS day_tracking(
-        date TEXT
-        , user_name TEXT
-        , rating_day INT
-        , rating_calmness INT
-    )
-'''
-)
-             
+    
 def reflections():
     rating_day = int(input('Rate your day out of 10 today: '))
     rating_calmness = int(input('And how calm were you? \n'))
@@ -72,8 +74,28 @@ def reflections():
         print('Wow, that is amazing ')
     else:
         print('Hope it gets better! ')
+    date = datetime.now()
+    cur.execute("INSERT INTO day_tracking VALUES (?, ?, ?, ?)", 
+                (str(date), user_name, rating_day, rating_calmness))
+    con.commit()
 
+def view_data():
+    cur.execute("SELECT * FROM fitness_tracker")
+    rows = cur.fetchall()
+
+    for row in rows:
+        print(row)
+
+    cur.execute("SELECT * FROM day_tracking")
+    rows = cur.fetchall()
+
+    for row in rows:
+        print(row)
+
+
+day_summary()
 reflections()
+view_data()
 
 # Closing connection
 
