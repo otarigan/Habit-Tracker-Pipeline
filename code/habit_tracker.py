@@ -35,9 +35,10 @@ class FitnessTrackerGUI:
         self.root.config(bg="#000000")  # Sets background color of the window to black
         self.root.title("Habit Tracker")  # Sets the window title
         self.user_name = 'OT'
+     
 
         # Define the labels and entry fields in pairs to keep things organized
-        self.user_mood_label = tk.Label(root, text="Enter your mood", bg="#000000", fg="#ffffff")
+        self.user_mood_label = tk.Label(root, text="Enter your how you feel today", bg="#000000", fg="#ffffff")
         self.user_mood_label.pack()
         self.user_mood = tk.Entry(root, bg="#000000", fg="#ffffff", insertbackground='white')
         self.user_mood.pack()
@@ -57,7 +58,7 @@ class FitnessTrackerGUI:
         self.learning_time = tk.Entry(root, bg="#000000", fg="#ffffff", insertbackground='white')
         self.learning_time.pack()
 
-        self.submit_button = tk.Button(root, text="Submit", command=self.day_summary, bg="#000000", fg="#ffffff")
+        self.submit_button = tk.Button(root, text="Submit", command=self.day_summary, bg="#0052cc", fg="#ffffff")
         self.submit_button.pack()
 
         self.rating_day_label = tk.Label(root, text="Rate your day out of 10", bg="#000000", fg="#ffffff")
@@ -70,10 +71,10 @@ class FitnessTrackerGUI:
         self.rating_calmness = tk.Entry(root, bg="#000000", fg="#ffffff", insertbackground='white')
         self.rating_calmness.pack()
 
-        self.reflection_button = tk.Button(root, text="Reflect", command=self.reflections, bg="#000000", fg="#ffffff")
+        self.reflection_button = tk.Button(root, text="Reflect & Submit", command=self.reflections, bg="#0052cc", fg="#ffffff")
         self.reflection_button.pack()
 
-        self.view_button = tk.Button(root, text="View Data", command=self.view_data, bg="#000000", fg="#ffffff")
+        self.view_button = tk.Button(root, text="View Data", command=self.view_data, bg="#0052cc", fg="#ffffff")
         self.view_button.pack()
 
 
