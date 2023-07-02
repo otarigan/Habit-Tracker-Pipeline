@@ -106,7 +106,7 @@ class FitnessTrackerGUI:
         rating_calmness = int(self.rating_calmness.get())
         date = datetime.now()
         
-        if rating_day > 5 and rating_calmness > 5:
+        if rating_day > 6 and rating_calmness > 6:
             messagebox.showinfo("Message", 'Wow, that is amazing')
         else:
             messagebox.showinfo("Message", 'Hope it gets better!')
