@@ -84,7 +84,7 @@ class FitnessTrackerGUI:
         run_distance = float(self.run_distance.get())
         learning_time = float(self.learning_time.get())
         
-        train_learn_goal = 0.5
+        train_learn_goal = 1
         run_goal = 0.1
         success_counter = 0
         fail_counter = 0
@@ -106,7 +106,7 @@ class FitnessTrackerGUI:
         rating_calmness = int(self.rating_calmness.get())
         date = datetime.now()
         
-        if rating_day > 5 and rating_calmness > 5:
+        if rating_day > 6 and rating_calmness > 6:
             messagebox.showinfo("Message", 'Wow, that is amazing')
         else:
             messagebox.showinfo("Message", 'Hope it gets better!')
