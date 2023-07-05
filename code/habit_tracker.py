@@ -84,7 +84,7 @@ class FitnessTrackerGUI:
         run_distance = float(self.run_distance.get())
         learning_time = float(self.learning_time.get())
         
-        train_learn_goal = 0.5
+        train_learn_goal = 1
         run_goal = 0.1
         success_counter = 0
         fail_counter = 0
