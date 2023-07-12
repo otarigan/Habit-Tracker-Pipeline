@@ -71,7 +71,7 @@ class FitnessTrackerGUI:
         self.rating_calmness = tk.Entry(root, bg="#000000", fg="#ffffff", insertbackground='white')
         self.rating_calmness.pack()
 
-        self.reflection_button = tk.Button(root, text="Reflection Complete", command=self.reflections, bg="#0052cc", fg="#ffffff")
+        self.reflection_button = tk.Button(root, text="Complete Reflection", command=self.reflections, bg="#0052cc", fg="#ffffff")
         self.reflection_button.pack()
 
         self.view_button = tk.Button(root, text="View Data", command=self.view_data, bg="#0052cc", fg="#ffffff")
