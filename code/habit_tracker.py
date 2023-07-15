@@ -93,9 +93,8 @@ class FitnessTrackerGUI:
         if learning_time and training_time >= train_learn_goal and run_distance >= run_goal:
             messagebox.showinfo("Message", "Congratulations, you've achieved your goal today")
             success_counter += 1
-        else:
-            messagebox.showinfo("Message", "You'll do better, but you did not meet your goals today")
-            fail_counter += 1
+        if learning_time and training_time < train_learn_goal and run_distance < run_goal:
+            messagebox.showinfo("Message", "Well, hopefully it was a rest day!")
 
         cur.execute("INSERT INTO fitness_tracker VALUES (?, ?, ?, ?, ?, ?)",
                     (str(date), self.user_name, user_mood, training_time, learning_time, run_distance))
